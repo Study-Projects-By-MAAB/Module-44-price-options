@@ -95,21 +95,25 @@ const LineChart = () => {
                 <Bar dataKey={"mathMarks"} fill="yellow"></Bar>
             </BarChart>
 
-            <PieChart width={900} height={400}>
-                <Pie
-                    cx={"50%"}
-                    cy={"50%"}
-                    labelLine={false}
-                    label={renderCustomizedLabel}
-                    fill="green"
-                    outerRadius={80}
-                    data={students}
-                    dataKey={"physicsMarks"}>
-                    {students.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
-                    ))}
-                </Pie>
-            </PieChart>
+            <div className="w-40 h-full">
+                <ResponsiveContainer>
+                    <PieChart width={1300} height={900}>
+                        <Pie
+                            cx={"50%"}
+                            cy={"50%"}
+                            labelLine={false}
+                            label={renderCustomizedLabel}
+                            fill="green"
+                            outerRadius={300}
+                            data={students}
+                            dataKey={"physicsMarks"}>
+                            {students.map((entry, index) => (
+                                <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                            ))}
+                        </Pie>
+                    </PieChart>
+                </ResponsiveContainer>
+            </div>
         </div>
     );
 };
